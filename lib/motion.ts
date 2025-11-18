@@ -1,4 +1,4 @@
-import { Variants } from 'framer-motion';
+import { Variants, Transition } from 'framer-motion';
 
 // Global animation variants with consistent timing
 export const motionVariants = {
@@ -8,7 +8,7 @@ export const motionVariants = {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99],
+        ease: [0.6, -0.05, 0.01, 0.99] as [number, number, number, number],
       },
     },
   } as Variants,
@@ -20,7 +20,7 @@ export const motionVariants = {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99],
+        ease: [0.6, -0.05, 0.01, 0.99] as [number, number, number, number],
       },
     },
   } as Variants,
@@ -32,7 +32,7 @@ export const motionVariants = {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99],
+        ease: [0.6, -0.05, 0.01, 0.99] as [number, number, number, number],
       },
     },
   } as Variants,
@@ -44,7 +44,7 @@ export const motionVariants = {
       x: 0,
       transition: {
         duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99],
+        ease: [0.6, -0.05, 0.01, 0.99] as [number, number, number, number],
       },
     },
   } as Variants,
@@ -56,7 +56,7 @@ export const motionVariants = {
       x: 0,
       transition: {
         duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99],
+        ease: [0.6, -0.05, 0.01, 0.99] as [number, number, number, number],
       },
     },
   } as Variants,
@@ -68,7 +68,7 @@ export const motionVariants = {
       scale: 1,
       transition: {
         duration: 0.5,
-        ease: [0.6, -0.05, 0.01, 0.99],
+        ease: [0.6, -0.05, 0.01, 0.99] as [number, number, number, number],
       },
     },
   } as Variants,
@@ -91,7 +91,7 @@ export const motionVariants = {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: [0.6, -0.05, 0.01, 0.99],
+        ease: [0.6, -0.05, 0.01, 0.99] as [number, number, number, number],
       },
     },
   } as Variants,
@@ -101,20 +101,20 @@ export const motionVariants = {
 export const transitions = {
   smooth: {
     duration: 0.3,
-    ease: [0.4, 0, 0.2, 1],
-  },
+    ease: [0.4, 0, 0.2, 1] as [number, number, number, number],
+  } as Transition,
   spring: {
     type: 'spring' as const,
     stiffness: 300,
     damping: 30,
-  },
+  } as Transition,
   gentle: {
     duration: 0.5,
-    ease: [0.6, -0.05, 0.01, 0.99],
-  },
+    ease: [0.6, -0.05, 0.01, 0.99] as [number, number, number, number],
+  } as Transition,
   slow: {
     duration: 0.8,
-    ease: [0.6, -0.05, 0.01, 0.99],
-  },
+    ease: [0.6, -0.05, 0.01, 0.99] as [number, number, number, number],
+  } as Transition,
 };
 
