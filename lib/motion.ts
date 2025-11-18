@@ -14,12 +14,12 @@ export const motionVariants = {
   } as Variants,
 
   fadeUp: {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 15 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
+        duration: 0.4,
         ease: 'easeOut',
       },
     },
@@ -78,43 +78,43 @@ export const motionVariants = {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.2,
+        staggerChildren: 0.08,
+        delayChildren: 0.1,
       },
     },
   } as Variants,
 
   staggerItem: {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 15 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.5,
-        ease: 'easeInOut',
+        duration: 0.3,
+        ease: 'easeOut',
       },
     },
   } as Variants,
 };
 
-// Common transition presets - optimized for performance
+// Common transition presets - optimized for performance and smoothness
 export const transitions = {
   smooth: {
-    duration: 0.25,
+    duration: 0.2,
     ease: 'easeOut' as const,
   } as Transition,
   spring: {
     type: 'spring' as const,
-    stiffness: 400,
-    damping: 35,
-    mass: 0.5,
+    stiffness: 500,
+    damping: 40,
+    mass: 0.4,
   } as Transition,
   gentle: {
-    duration: 0.4,
+    duration: 0.3,
     ease: 'easeOut' as const,
   } as Transition,
   slow: {
-    duration: 0.6,
+    duration: 0.5,
     ease: 'easeOut' as const,
   } as Transition,
 };

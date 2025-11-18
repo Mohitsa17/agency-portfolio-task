@@ -20,7 +20,7 @@ export default function HeroSection() {
   const mouseY = useMotionValue(0);
   const rafRef = useRef<number | null>(null);
 
-  const springConfig = { damping: 30, stiffness: 300 };
+  const springConfig = { damping: 40, stiffness: 500 };
   const x = useSpring(mouseX, springConfig);
   const y = useSpring(mouseY, springConfig);
 
@@ -33,8 +33,8 @@ export default function HeroSection() {
         rafRef.current = requestAnimationFrame(() => {
           const { clientX, clientY } = e;
           const { innerWidth, innerHeight } = window;
-          const xPos = (clientX / innerWidth - 0.5) * 15; // Reduced from 20
-          const yPos = (clientY / innerHeight - 0.5) * 15; // Reduced from 20
+          const xPos = (clientX / innerWidth - 0.5) * 10; // Further reduced for smoother performance
+          const yPos = (clientY / innerHeight - 0.5) * 10; // Further reduced for smoother performance
           mouseX.set(xPos);
           mouseY.set(yPos);
           rafRef.current = null;
@@ -50,7 +50,7 @@ export default function HeroSection() {
   }, [mouseX, mouseY]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-indigo-50 via-purple-50 via-pink-50 to-blue-50 dark:from-gray-900 dark:via-indigo-950 dark:via-purple-950 dark:to-gray-900">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-indigo-50 via-purple-50 via-pink-50 to-blue-50 dark:from-gray-900 dark:via-indigo-950 dark:via-purple-950 dark:to-gray-900" style={{ transform: 'translateZ(0)', willChange: 'scroll-position' }}>
       {/* Animated gradient background */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div

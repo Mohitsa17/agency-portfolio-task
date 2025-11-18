@@ -7,7 +7,7 @@ import Footer from '@/components/home/Footer';
 
 export default function Home() {
   return (
-    <main className="min-h-screen">
+    <main className="min-h-screen" style={{ transform: 'translateZ(0)', willChange: 'scroll-position' }}>
       <HeroSection />
       <div id="projects">
         <ProjectsSection />

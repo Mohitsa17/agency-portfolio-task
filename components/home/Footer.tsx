@@ -111,7 +111,7 @@ export default function Footer() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ ...transitions.gentle, delay: 0.4 }}
-            className="border-t border-gray-800 pt-6 sm:pt-8 text-center"
+            className="border-t border-gray-800 pt-6 sm:pt-8 text-center relative"
           >
             <p className="text-gray-500 text-sm sm:text-base flex items-center justify-center gap-2 flex-wrap">
               © {currentYear} Task Project. All rights reserved. Made with{' '}
@@ -122,6 +122,15 @@ export default function Footer() {
                 <Heart className="w-4 h-4 text-pink-500 fill-pink-500" />
               </motion.span>
             </p>
+            {/* Subtle Admin Access Button - Bottom Right Corner */}
+            <a
+              href="/admin/login"
+              className="absolute bottom-2 right-2 sm:bottom-3 sm:right-3 opacity-25 hover:opacity-60 transition-all duration-300 text-gray-400 hover:text-gray-300 text-[10px] sm:text-xs font-medium px-2 py-1 rounded-md border border-gray-700/30 hover:border-gray-600/50 bg-gray-800/20 hover:bg-gray-800/40 backdrop-blur-sm"
+              aria-label="Admin Login"
+              title="Admin Login"
+            >
+              🔐 Admin
+            </a>
           </motion.div>
         </div>
       </footer>
