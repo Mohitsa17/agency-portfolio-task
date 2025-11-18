@@ -102,7 +102,7 @@ export default function HeroSection() {
             >
               <Sparkles className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
               <span className="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300 tracking-wide">
-                Welcome to Flipr
+                Welcome to Our Platform
               </span>
             </motion.div>
           </FadeInUp>

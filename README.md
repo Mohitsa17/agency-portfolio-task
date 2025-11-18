@@ -1,6 +1,6 @@
-# 🚀 Flipr Task - Full-Stack Next.js Project
+# 🚀 Task Project - Full-Stack Next.js Project
 
-> A modern, production-ready full-stack web application built for Flipr Placement Assignment featuring a beautiful landing page and comprehensive admin panel.
+> A modern, production-ready full-stack web application built for Placement Assignment featuring a beautiful landing page and comprehensive admin panel.
 
 [![Next.js](https://img.shields.io/badge/Next.js-16.0-black)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue)](https://www.typescriptlang.org/)
@@ -101,7 +101,7 @@ This project is a complete full-stack web application built with Next.js 14 (App
 ## 📁 Project Structure
 
 ```
-flipr-task/
+task-project/
 ├── app/
 │   ├── admin/              # Admin panel pages
 │   │   ├── dashboard/      # Admin dashboard
@@ -163,8 +163,8 @@ flipr-task/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/YOUR_USERNAME/flipr-task.git
-   cd flipr-task
+   git clone https://github.com/YOUR_USERNAME/task-project.git
+   cd task-project
    ```
 
 2. **Install dependencies**
@@ -176,7 +176,7 @@ flipr-task/
    
    Create a `.env.local` file in the root directory:
    ```env
-   MONGODB_URI=mongodb://localhost:27017/flipr-task
+   MONGODB_URI=mongodb://localhost:27017/task-project
    JWT_SECRET=your-secret-key-change-in-production
    ADMIN_EMAIL=admin@example.com
    ADMIN_PASSWORD=admin123
@@ -199,7 +199,7 @@ flipr-task/
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `MONGODB_URI` | MongoDB connection string | `mongodb://localhost:27017/flipr-task` |
+| `MONGODB_URI` | MongoDB connection string | `mongodb://localhost:27017/task-project` |
 | `JWT_SECRET` | Secret key for JWT tokens | `your-secret-key-here` |
 | `ADMIN_EMAIL` | Admin login email | `admin@example.com` |
 | `ADMIN_PASSWORD` | Admin login password | `secure-password` |
@@ -518,7 +518,7 @@ npm run lint
 
 ---
 
-## 📝 Notes for Flipr HR Team
+## 📝 Notes for HR Team
 
 ### Project Highlights
 
@@ -554,7 +554,7 @@ npm run lint
 
 ## 📄 License
 
-This project is created for Flipr Placement Assignment.
+This project is created for Placement Assignment.
 
 ---
 
@@ -585,4 +585,4 @@ For issues or questions:
 
 ---
 
-**Built with ❤️ for Flipr Placement Assignment**
+**Built with ❤️ for Placement Assignment**

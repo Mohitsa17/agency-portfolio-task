@@ -38,7 +38,7 @@ export default function Footer() {
             <FadeInUp delay={0.1}>
               <div>
                 <h3 className="text-white text-xl sm:text-2xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-indigo-400 to-purple-400 bg-clip-text text-transparent">
-                  Flipr
+                  Task Project
                 </h3>
                 <p className="text-gray-400 leading-relaxed text-sm sm:text-base lg:text-lg mb-4 sm:mb-6">
                   Building digital excellence together. We create stunning experiences that drive results and transform visions into reality.
@@ -93,8 +93,8 @@ export default function Footer() {
                 <ul className="space-y-3 sm:space-y-4 text-gray-400 text-sm sm:text-base lg:text-lg">
                   <li className="flex items-center gap-3">
                     <Mail className="w-5 h-5 text-indigo-400 flex-shrink-0" />
-                    <a href="mailto:hello@flipr.com" className="hover:text-white transition-colors break-all">
-                      hello@flipr.com
+                    <a href="mailto:hello@example.com" className="hover:text-white transition-colors break-all">
+                      hello@example.com
                     </a>
                   </li>
                   <li className="flex items-center gap-3">
@@ -114,7 +114,7 @@ export default function Footer() {
             className="border-t border-gray-800 pt-6 sm:pt-8 text-center"
           >
             <p className="text-gray-500 text-sm sm:text-base flex items-center justify-center gap-2 flex-wrap">
-              © {currentYear} Flipr. All rights reserved. Made with{' '}
+              © {currentYear} Task Project. All rights reserved. Made with{' '}
               <motion.span
                 animate={{ scale: [1, 1.2, 1] }}
                 transition={{ duration: 1, repeat: Infinity }}

@@ -14,18 +14,18 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Flipr - Building Digital Excellence Together",
+  title: "Building Digital Excellence Together",
   description: "We create stunning digital experiences that drive results. From innovative projects to satisfied clients, we're here to transform your vision into reality.",
   keywords: ["digital agency", "web development", "design", "projects", "clients"],
-  authors: [{ name: "Flipr" }],
+  authors: [{ name: "Task Project" }],
   openGraph: {
-    title: "Flipr - Building Digital Excellence Together",
+    title: "Building Digital Excellence Together",
     description: "We create stunning digital experiences that drive results.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Flipr - Building Digital Excellence Together",
+    title: "Building Digital Excellence Together",
     description: "We create stunning digital experiences that drive results.",
   },
 };
