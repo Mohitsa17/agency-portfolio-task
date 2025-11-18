@@ -129,12 +129,11 @@
     overflow-x: hidden;
     max-width: 100vw;
     position: relative;
+    /* Performance optimizations */
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
   }
   
-  /* Hide default cursor */
-  * {
-    cursor: none !important;
-  }
   
   /* Improve text rendering */
   h1, h2, h3, h4, h5, h6 {
@@ -175,19 +174,23 @@
     animation: blob 7s infinite;
   }
 
-  /* Glassmorphism utility */
+  /* Glassmorphism utility - optimized for performance */
   .glass {
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.2);
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   .glass-dark {
     background: rgba(0, 0, 0, 0.1);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.1);
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   /* Smooth transitions */

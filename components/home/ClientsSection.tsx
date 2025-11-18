@@ -28,7 +28,7 @@ const ClientCard = memo(({ client }: { client: Client }) => (
     }}
     transition={transitions.spring}
   >
-    <Card className="h-full border-0 shadow-xl hover:shadow-2xl transition-all duration-500 ease-out bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-white/20 dark:border-gray-700/30 rounded-2xl overflow-hidden group">
+    <Card className="h-full border-0 shadow-xl hover:shadow-2xl transition-all duration-300 ease-out bg-white/90 dark:bg-gray-800/90 border border-white/20 dark:border-gray-700/30 rounded-2xl overflow-hidden group" style={{ backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', willChange: 'transform' }}>
       <CardContent className="p-8 sm:p-10">
         <div className="flex items-start gap-4 mb-6 sm:mb-8">
           <Quote className="w-8 h-8 sm:w-10 sm:h-10 text-indigo-600 dark:text-indigo-400 flex-shrink-0 group-hover:scale-110 transition-transform duration-300" />

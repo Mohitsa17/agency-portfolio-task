@@ -18,10 +18,11 @@ export function FadeInUp({ children, delay = 0, className = '' }: { children: Re
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-100px' }}
+      viewport={{ once: true, margin: '-50px' }}
       variants={fadeInUp}
       transition={{ delay }}
       className={className}
+      style={{ willChange: 'transform, opacity' }}
     >
       {children}
     </motion.div>
@@ -33,10 +34,11 @@ export function FadeInLeft({ children, delay = 0, className = '' }: { children: 
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-100px' }}
+      viewport={{ once: true, margin: '-50px' }}
       variants={fadeInLeft}
       transition={{ delay }}
       className={className}
+      style={{ willChange: 'transform, opacity' }}
     >
       {children}
     </motion.div>
@@ -48,10 +50,11 @@ export function FadeInRight({ children, delay = 0, className = '' }: { children:
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-100px' }}
+      viewport={{ once: true, margin: '-50px' }}
       variants={fadeInRight}
       transition={{ delay }}
       className={className}
+      style={{ willChange: 'transform, opacity' }}
     >
       {children}
     </motion.div>
@@ -63,10 +66,11 @@ export function ScaleIn({ children, delay = 0, className = '' }: { children: Rea
     <motion.div
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true, margin: '-100px' }}
+      viewport={{ once: true, margin: '-50px' }}
       variants={scaleIn}
       transition={{ delay }}
       className={className}
+      style={{ willChange: 'transform, opacity' }}
     >
       {children}
     </motion.div>

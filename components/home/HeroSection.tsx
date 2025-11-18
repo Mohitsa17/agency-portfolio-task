@@ -1,43 +1,52 @@
 'use client';
 
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, useMotionValue, useSpring } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles } from 'lucide-react';
 import { FadeInUp, ScaleIn } from './animations';
 import { transitions } from '@/lib/motion';
 
-// Fixed orbs data to prevent hydration mismatch
+// Reduced orbs for better performance
 const FLOATING_ORBS = [
-  { id: 0, size: 110, x: 20, y: 30, duration: 15, color: 'rgba(99, 102, 241, 0.4)' },
-  { id: 1, size: 85, x: 75, y: 70, duration: 18, color: 'rgba(168, 85, 247, 0.4)' },
-  { id: 2, size: 125, x: 45, y: 15, duration: 20, color: 'rgba(236, 72, 153, 0.4)' },
-  { id: 3, size: 95, x: 60, y: 85, duration: 16, color: 'rgba(99, 102, 241, 0.4)' },
-  { id: 4, size: 105, x: 85, y: 25, duration: 22, color: 'rgba(168, 85, 247, 0.4)' },
+  { id: 0, size: 110, x: 20, y: 30, duration: 18, color: 'rgba(99, 102, 241, 0.3)' },
+  { id: 1, size: 85, x: 75, y: 70, duration: 20, color: 'rgba(168, 85, 247, 0.3)' },
+  { id: 2, size: 125, x: 45, y: 15, duration: 22, color: 'rgba(236, 72, 153, 0.25)' },
 ];
 
 export default function HeroSection() {
   const [mounted, setMounted] = useState(false);
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+  const rafRef = useRef<number | null>(null);
 
-  const springConfig = { damping: 25, stiffness: 200 };
+  const springConfig = { damping: 30, stiffness: 300 };
   const x = useSpring(mouseX, springConfig);
   const y = useSpring(mouseY, springConfig);
 
   useEffect(() => {
     setMounted(true);
+    
     const handleMouseMove = (e: MouseEvent) => {
-      const { clientX, clientY } = e;
-      const { innerWidth, innerHeight } = window;
-      const xPos = (clientX / innerWidth - 0.5) * 20;
-      const yPos = (clientY / innerHeight - 0.5) * 20;
-      mouseX.set(xPos);
-      mouseY.set(yPos);
+      // Throttle parallax updates
+      if (rafRef.current === null) {
+        rafRef.current = requestAnimationFrame(() => {
+          const { clientX, clientY } = e;
+          const { innerWidth, innerHeight } = window;
+          const xPos = (clientX / innerWidth - 0.5) * 15; // Reduced from 20
+          const yPos = (clientY / innerHeight - 0.5) * 15; // Reduced from 20
+          mouseX.set(xPos);
+          mouseY.set(yPos);
+          rafRef.current = null;
+        });
+      }
     };
 
-    window.addEventListener('mousemove', handleMouseMove);
-    return () => window.removeEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      if (rafRef.current !== null) cancelAnimationFrame(rafRef.current);
+    };
   }, [mouseX, mouseY]);
 
   return (
@@ -71,11 +80,13 @@ export default function HeroSection() {
             left: `${orb.x}%`,
             top: `${orb.y}%`,
             background: `radial-gradient(circle, ${orb.color} 0%, transparent 70%)`,
+            willChange: 'transform',
+            transform: 'translateZ(0)',
           }}
           animate={{
-            x: [0, 30, -30, 0],
-            y: [0, -30, 30, 0],
-            scale: [1, 1.2, 0.8, 1],
+            x: [0, 20, -20, 0],
+            y: [0, -20, 20, 0],
+            scale: [1, 1.1, 0.9, 1],
           }}
           transition={{
             duration: orb.duration,
@@ -85,8 +96,8 @@ export default function HeroSection() {
         />
       ))}
 
-      {/* Glassmorphism overlay */}
-      <div className="absolute inset-0 bg-white/5 dark:bg-black/5 backdrop-blur-sm" />
+      {/* Glassmorphism overlay - reduced blur for performance */}
+      <div className="absolute inset-0 bg-white/5 dark:bg-black/5" style={{ backdropFilter: 'blur(4px)', WebkitBackdropFilter: 'blur(4px)' }} />
 
       {/* Content with parallax */}
       <div className="relative z-10 max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-24">

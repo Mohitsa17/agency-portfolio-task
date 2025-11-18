@@ -26,7 +26,7 @@ const ProjectCard = memo(({ project }: { project: Project }) => (
     transition={transitions.spring}
     className="group"
   >
-    <Card className="h-full overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-500 ease-out bg-white/80 dark:bg-gray-800/80 backdrop-blur-md border border-white/20 dark:border-gray-700/30 rounded-2xl">
+    <Card className="h-full overflow-hidden border-0 shadow-xl hover:shadow-2xl transition-all duration-300 ease-out bg-white/90 dark:bg-gray-800/90 border border-white/20 dark:border-gray-700/30 rounded-2xl" style={{ backdropFilter: 'blur(8px)', WebkitBackdropFilter: 'blur(8px)', willChange: 'transform' }}>
       <div className="relative h-64 sm:h-72 overflow-hidden bg-gradient-to-br from-indigo-100 to-purple-100 dark:from-gray-700 dark:to-gray-800">
         <img
           src={project.image || 'https://via.placeholder.com/400x300'}

@@ -8,19 +8,19 @@ export const motionVariants = {
       opacity: 1,
       transition: {
         duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99] as [number, number, number, number],
+        ease: 'easeInOut',
       },
     },
   } as Variants,
 
   fadeUp: {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99] as [number, number, number, number],
+        duration: 0.5,
+        ease: 'easeOut',
       },
     },
   } as Variants,
@@ -32,7 +32,7 @@ export const motionVariants = {
       y: 0,
       transition: {
         duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99] as [number, number, number, number],
+        ease: 'easeInOut',
       },
     },
   } as Variants,
@@ -44,7 +44,7 @@ export const motionVariants = {
       x: 0,
       transition: {
         duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99] as [number, number, number, number],
+        ease: 'easeInOut',
       },
     },
   } as Variants,
@@ -56,7 +56,7 @@ export const motionVariants = {
       x: 0,
       transition: {
         duration: 0.6,
-        ease: [0.6, -0.05, 0.01, 0.99] as [number, number, number, number],
+        ease: 'easeInOut',
       },
     },
   } as Variants,
@@ -68,7 +68,7 @@ export const motionVariants = {
       scale: 1,
       transition: {
         duration: 0.5,
-        ease: [0.6, -0.05, 0.01, 0.99] as [number, number, number, number],
+        ease: 'easeInOut',
       },
     },
   } as Variants,
@@ -91,30 +91,31 @@ export const motionVariants = {
       y: 0,
       transition: {
         duration: 0.5,
-        ease: [0.6, -0.05, 0.01, 0.99] as [number, number, number, number],
+        ease: 'easeInOut',
       },
     },
   } as Variants,
 };
 
-// Common transition presets
+// Common transition presets - optimized for performance
 export const transitions = {
   smooth: {
-    duration: 0.3,
-    ease: [0.4, 0, 0.2, 1] as [number, number, number, number],
+    duration: 0.25,
+    ease: 'easeOut',
   } as Transition,
   spring: {
     type: 'spring' as const,
-    stiffness: 300,
-    damping: 30,
+    stiffness: 400,
+    damping: 35,
+    mass: 0.5,
   } as Transition,
   gentle: {
-    duration: 0.5,
-    ease: [0.6, -0.05, 0.01, 0.99] as [number, number, number, number],
+    duration: 0.4,
+    ease: 'easeOut',
   } as Transition,
   slow: {
-    duration: 0.8,
-    ease: [0.6, -0.05, 0.01, 0.99] as [number, number, number, number],
+    duration: 0.6,
+    ease: 'easeOut',
   } as Transition,
 };
 
