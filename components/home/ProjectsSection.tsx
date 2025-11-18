@@ -77,8 +77,13 @@ export default function ProjectsSection() {
           },
         });
         setProjects(response.data.data || []);
-      } catch (error) {
-        // Error handling without console.log
+      } catch (error: any) {
+        // Log error for debugging (only in development)
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Error fetching projects:', error?.response?.data || error?.message);
+        }
+        // Set empty array on error to show "No projects" message
+        setProjects([]);
       } finally {
         setIsLoading(false);
       }

@@ -77,8 +77,13 @@ export default function ClientsSection() {
           },
         });
         setClients(response.data.data || []);
-      } catch (error) {
-        // Error handling without console.log
+      } catch (error: any) {
+        // Log error for debugging (only in development)
+        if (process.env.NODE_ENV === 'development') {
+          console.error('Error fetching clients:', error?.response?.data || error?.message);
+        }
+        // Set empty array on error to show "No clients" message
+        setClients([]);
       } finally {
         setIsLoading(false);
       }

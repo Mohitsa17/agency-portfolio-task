@@ -12,10 +12,14 @@ export async function GET(request: NextRequest) {
     await connectDB();
     const clients = await Client.find().sort({ createdAt: -1 });
     return NextResponse.json({ success: true, data: clients }, { status: 200 });
-  } catch (error) {
-    console.error('Error fetching clients:', error);
+  } catch (error: any) {
+    // Return detailed error in response for debugging
     return NextResponse.json(
-      { error: 'Failed to fetch clients' },
+      { 
+        error: 'Failed to fetch clients',
+        message: error?.message || 'Unknown error',
+        details: process.env.NODE_ENV === 'development' ? error?.stack : undefined
+      },
       { status: 500 }
     );
   }
@@ -54,10 +58,14 @@ export async function POST(request: NextRequest) {
       { success: true, data: client },
       { status: 201 }
     );
-  } catch (error) {
-    console.error('Error creating client:', error);
+  } catch (error: any) {
+    // Return detailed error in response for debugging
     return NextResponse.json(
-      { error: 'Failed to create client' },
+      { 
+        error: 'Failed to create client',
+        message: error?.message || 'Unknown error',
+        details: process.env.NODE_ENV === 'development' ? error?.stack : undefined
+      },
       { status: 500 }
     );
   }

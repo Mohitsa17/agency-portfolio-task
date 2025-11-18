@@ -8,10 +8,14 @@ export async function GET(request: NextRequest) {
     await connectDB();
     const projects = await Project.find().sort({ createdAt: -1 });
     return NextResponse.json({ success: true, data: projects }, { status: 200 });
-  } catch (error) {
-    console.error('Error fetching projects:', error);
+  } catch (error: any) {
+    // Return detailed error in response for debugging
     return NextResponse.json(
-      { error: 'Failed to fetch projects' },
+      { 
+        error: 'Failed to fetch projects',
+        message: error?.message || 'Unknown error',
+        details: process.env.NODE_ENV === 'development' ? error?.stack : undefined
+      },
       { status: 500 }
     );
   }
@@ -49,10 +53,14 @@ export async function POST(request: NextRequest) {
       { success: true, data: project },
       { status: 201 }
     );
-  } catch (error) {
-    console.error('Error creating project:', error);
+  } catch (error: any) {
+    // Return detailed error in response for debugging
     return NextResponse.json(
-      { error: 'Failed to create project' },
+      { 
+        error: 'Failed to create project',
+        message: error?.message || 'Unknown error',
+        details: process.env.NODE_ENV === 'development' ? error?.stack : undefined
+      },
       { status: 500 }
     );
   }

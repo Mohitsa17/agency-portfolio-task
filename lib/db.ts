@@ -29,10 +29,23 @@ async function connectDB(): Promise<typeof mongoose> {
   if (!cached.promise) {
     const opts = {
       bufferCommands: false,
+      maxPoolSize: 10,
+      serverSelectionTimeoutMS: 5000,
+      socketTimeoutMS: 45000,
     };
 
     cached.promise = mongoose.connect(MONGODB_URI, opts).then((mongoose) => {
       return mongoose;
+    }).catch((error) => {
+      cached.promise = null;
+      // Provide more helpful error message
+      if (error.message?.includes('IP')) {
+        throw new Error('MongoDB connection failed: IP address not whitelisted. Please add 0.0.0.0/0 to MongoDB Atlas Network Access.');
+      }
+      if (error.message?.includes('authentication')) {
+        throw new Error('MongoDB connection failed: Authentication failed. Check your username and password in MONGODB_URI.');
+      }
+      throw error;
     });
   }
 
