@@ -101,7 +101,7 @@ export const motionVariants = {
 export const transitions = {
   smooth: {
     duration: 0.25,
-    ease: 'easeOut',
+    ease: 'easeOut' as const,
   } as Transition,
   spring: {
     type: 'spring' as const,
@@ -111,11 +111,11 @@ export const transitions = {
   } as Transition,
   gentle: {
     duration: 0.4,
-    ease: 'easeOut',
+    ease: 'easeOut' as const,
   } as Transition,
   slow: {
     duration: 0.6,
-    ease: 'easeOut',
+    ease: 'easeOut' as const,
   } as Transition,
 };
 
